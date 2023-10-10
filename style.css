@@ -1,0 +1,37 @@
+.title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+    background-color: silver;
+    margin: auto;
+    text-align: center;
+}
+
+.button {
+    text-align: center;
+}
+
+.delete {
+    background-color: brown;
+    height: 2cm;
+    width: 4cm;
+}
+
+.edit {
+    background-color: blue;
+    height: 2cm;
+    width: 4cm;
+}
+
+.AllClothes {
+    background-color: aquamarine;
+    height: 2cm;
+    width: 4cm;
+}
+
+.comentario {
+    background-color: aliceblue;
+}
+
+.NombreUsuario {
+    background-color: blueviolet;
+}
