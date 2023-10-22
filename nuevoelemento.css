@@ -1,0 +1,27 @@
+.body {
+    background-color: rgb(245, 234, 220);
+
+}
+
+.newclothes {
+    border-radius: 1%;
+    border-width: 15%;
+    margin: 10%;
+    align-items: center;
+    justify-content: space-around;
+    background: steelblue;
+
+}
+
+.majortitle {
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+    background-color: #bec4c07d;
+    margin: auto;
+    text-align: center;
+}
+
+.checkbox {
+    justify-content: center;
+}
