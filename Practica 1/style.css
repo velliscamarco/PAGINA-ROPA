@@ -6,26 +6,18 @@
     text-align: center;
 }
 
+.hoodie {
+    width: 75%;
+}
+
 .button {
-    text-align: center;
+    text-align: right;
 }
 
-.delete {
-    background-color: brown;
-    height: 2cm;
-    width: 4cm;
-}
 
-.edit {
-    background-color: blue;
-    height: 2cm;
-    width: 4cm;
-}
+.icon {
+    height: 20%;
 
-.AllClothes {
-    background-color: aquamarine;
-    height: 2cm;
-    width: 4cm;
 }
 
 .comentario {
@@ -33,5 +25,7 @@
 }
 
 .NombreUsuario {
-    background-color: blueviolet;
+
+    background-color: rgb(219, 186, 250);
+
 }
