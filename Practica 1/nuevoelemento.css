@@ -1,3 +1,11 @@
+.title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+    background-color: #bec4c07d;
+    margin: auto;
+    text-align: center;
+}
+
 .body {
     background-color: rgb(245, 234, 220);
 
