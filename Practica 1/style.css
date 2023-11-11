@@ -106,3 +106,17 @@
 .titlenewclothe {
     text-align: center;
 }
+.caja-comentarios {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+textarea {
+    width: 100%;
+    padding: 0px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
