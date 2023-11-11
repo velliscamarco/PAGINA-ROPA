@@ -1,28 +1,31 @@
 .title {
     font-family: 'Courier New', Courier, monospace;
     font-size: 60px;
-    background-color: silver;
+    background-color: rgb(218, 169, 175);
     margin: auto;
     text-align: center;
+    font-weight: bold;
+
 }
 
 .hoodie {
-    width: 75%;
+    width: 70%;
+    height: auto;
 }
 
 .button {
     display: flex;
-    justify-content: flex-end; 
+    justify-content: flex-end;
 }
 
 .button a {
-   
+
     padding: 10px 20px;
     margin: 10px;
     text-decoration: none;
-    color: #fff; 
-    background-color: rgb(219, 186, 250); 
-    border-radius: 5px; 
+    color: #fff;
+    background-color: rgb(218, 169, 175);
+    border-radius: 5px;
 }
 
 .button a:hover {
@@ -30,21 +33,33 @@
 }
 
 .icon {
-    height: 20%;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    border-style: solid;
+
+}
+
+.col-md-11 {
+    border: black;
+    border-bottom: 1%;
+    border-style: solid;
+    border-radius: 2%;
 }
 
 .comentario {
     background-color: aliceblue;
-    
+
 }
 
 .NombreUsuario {
-    background-color: rgb(219, 186, 250);
+    background-color: rgb(218, 169, 201);
 }
+
 .rating {
     display: flex;
- flex-direction: row-reverse;
-    
+    flex-direction: row-reverse;
+
 }
 
 .rating input {
@@ -52,20 +67,42 @@
 }
 
 .rating label {
-   
+
     width: 30px;
     height: 30px;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/32/32172.png'); 
+    background-image: url('https://cdn-icons-png.flaticon.com/512/32/32172.png');
     background-size: cover;
 }
 
-.rating input:checked ~ label {
-    background-image: url('https://ih1.redbubble.net/image.806536056.0571/st,small,845x845-pad,1000x1000,f8f8f8.u2.jpg'); 
+.rating input:checked~label {
+    background-image: url('https://ih1.redbubble.net/image.806536056.0571/st,small,845x845-pad,1000x1000,f8f8f8.u2.jpg');
 }
+
 .rating-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; 
-    margin-right:  20px; 
+    align-items: flex-end;
+    margin-right: 20px;
 }
 
+.conteiner {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.newclothes {
+    border-radius: 1%;
+    border-width: 15%;
+    margin: 5%;
+    align-items: center;
+    justify-content: space-around;
+    background: rgb(218, 169, 175);
+
+}
+
+.redes {
+    text-align: right;
+}
+
+.titlenewclothe {
+    text-align: center;
+}
