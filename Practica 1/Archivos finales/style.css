@@ -66,6 +66,10 @@
     display: none;
 }
 
+.borde {
+    margin: 2%;
+}
+
 .rating label {
 
     width: 30px;
@@ -92,12 +96,14 @@
 .newclothes {
     border-radius: 1%;
     border-width: 15%;
-    margin: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
     align-items: center;
     justify-content: space-around;
     background: rgb(218, 169, 175);
 
 }
+
 
 .redes {
     text-align: right;
@@ -143,11 +149,10 @@ textarea {
 .item {
     min-height: 30%;
     width: 200px;
-    height: 200px;
+    height: 250px;
     background: white;
     border-color: rgb(242, 155, 209);
     text-align: center;
-
     justify-content: space-around;
     display: flex;
     align-items: center;
@@ -156,9 +161,9 @@ textarea {
 }
 
 .marco {
-    height: 90%;
-    width: 90%;
-    margin-left: 3%;
+    height: 80%;
+    width: 80%;
+    margin-left: 10%;
     border-color: #002F90;
     border-style: solid;
     border-width: 4px;
