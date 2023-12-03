@@ -48,7 +48,7 @@ function mostrarElementoPrincipal() {
 
         content.innerHTML +=
             `<p>
-            ${clothes[i].titulo}
+            ${clothes[i].title}
             <button onclick="paginasecundaria.html(${i});">Más info</button>            
         </p>`;
     }
