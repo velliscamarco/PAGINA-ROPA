@@ -1,3 +1,4 @@
+console.log(Storage);
 function obtener_localStorage() {
     if (localStorage.getItem('clothes') == null) {
         let clothes = localStorage.getItem('clothes');
@@ -10,7 +11,7 @@ function obtener_localStorage() {
 function guardar_localStorage(clothes) {
     let clothes = [
         {
-            id: 1,
+            id: 0,
             title: 'HODDIE 28 PROGRAM',
             price: 70,
             description: 'Descubre la elegancia casual con nuestra sudadera 28 programm de la más alta calidad. Confeccionada en algodón orgánico, esta sudadera no solo es una declaración de estilo, sino también un compromiso con la sostenibilidad. fabricada en España.',
@@ -19,7 +20,7 @@ function guardar_localStorage(clothes) {
             colors: ['pink']
         },
         {
-            id: 2,
+            id: 1,
             title: 'Pantalón 28 PROGRAM',
             price: 50,
             description: 'Descubre la elegancia casual con nuestro pantalón 28 programm de la más alta calidad. Confeccionada en algodón orgánico, esta sudadera no solo es una declaración de estilo, sino también un compromiso con la sostenibilidad. Fabricado en España.',
@@ -29,10 +30,9 @@ function guardar_localStorage(clothes) {
         }
     ];
 
-    localStorage.setItem("persona", JSON.stringify(clothes));
+    localStorage.setItem("clothes", JSON.stringify(clothes));
 }
 
-//guardar_localStorage = ();
-//obtener_localStorage = ();
+
 
 //Hacer el resto de elemntos
