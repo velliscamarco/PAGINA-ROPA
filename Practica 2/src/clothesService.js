@@ -2,7 +2,7 @@ console.log(Storage);
 function obtener_localStorage() {
     if (localStorage.getItem('clothes') == null) {
         let clothes = localStorage.getItem('clothes');
-        conssole.log(clothes);
+        console.log(clothes);
 
     } else {
         console.log('No hay prendas');
