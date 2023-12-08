@@ -9,6 +9,67 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link type="text/css" href="style.css" rel="stylesheet">
+    <script src="clothesService.js"></script>
+    <script>
+        // script para que los comentarios que el usuario escribe aparezcan
+        window.onload = function () {
+            cargarComentarios();
+        };
+    
+        function cargarComentarios() {
+            var comentariosContainer = document.getElementById("comentariosContainer");
+    
+            
+            var comentariosGuardados = JSON.parse(localStorage.getItem('comentarios')) || [];
+    
+            
+            comentariosGuardados.forEach(function (comentarioHTML) {
+                var nuevoComentario = document.createElement("div");
+                nuevoComentario.classList.add("comentario");
+                nuevoComentario.innerHTML = comentarioHTML;
+                comentariosContainer.appendChild(nuevoComentario);
+            });
+        }
+    
+        function agregarComentario() {
+            var nombre = document.getElementById("name").value;
+            var comentarioTexto = document.getElementById("comment").value;
+    
+          
+            var nuevoComentario = document.createElement("div");
+            nuevoComentario.classList.add("comentario");
+    
+            
+            var comentario = `
+                <div class="row">
+                    <div class="col-md-1">
+                        <img class="icon" src="https://i.pinimg.com/736x/c5/60/62/c56062ce3d120bb50721216064f812cc.jpg">
+                    </div>
+                    <div class="col-md-11">
+                        <div class="NombreUsuario">
+                            <h5>${nombre}</h5>
+                        </div>
+                        <p>${comentarioTexto}</p>
+                    </div>
+                </div>
+            `;
+    
+            
+            nuevoComentario.innerHTML = comentario;
+            var comentariosContainer = document.getElementById("comentariosContainer");
+            comentariosContainer.appendChild(nuevoComentario);
+    
+            
+            document.getElementById("comentarioForm").reset();
+    
+           
+            var comentariosGuardados = JSON.parse(localStorage.getItem('comentarios')) || [];
+            comentariosGuardados.push(comentario);
+            localStorage.setItem('comentarios', JSON.stringify(comentariosGuardados));
+        }
+    </script>
+    
+    
 </head>
 
 <body>
@@ -18,9 +79,9 @@
                 class="bi bi-tiktok">
             </i><i class="bi bi-twitter"></i></p>
         <nav class="button">
+            <a href="ConfirmarBorrado.html" class="button button-delete">Borrar <i class="bi bi-trash"></i></a>
             <a href="PracticaPaginaprincipal.html" class="button">Inicio</a>
             <a href="" class="button">Editar <i class="bi bi-brush"></i></a>
-            <a onclick="eliminar()" class="button">Borrar <i class="bi bi-trash"></i></a>
         </nav>
     </header>
 
@@ -46,7 +107,7 @@
                             <option value="white">Blanco</option>
                     </p>
                     </select>
-                    <p>PRECIO: 70€ </p>
+                    <p>PRECO: 70€ </p>
 
                 </div>
 
@@ -113,7 +174,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-6 main-content">
+                <div class="col-md-9 main-content">
                     <div class="caja-comentarios">
                         <h2>¡Deja tu comentario!</h2>
                         <p><label for="name">Nombre:</label>
@@ -122,12 +183,12 @@
                         <label for="comment">Comentario:</label>
                         <textarea id="comment" name="comment" rows="4" required></textarea>
 
-                        <button type="submit">Enviar comentario</button>
+                        <button type="button" onclick="agregarComentario()">Enviar comentario</button>
                         </form>
                     </div>
 
                 </div>
-                <div class="col-md-6 main-content">
+                <div class="col-md-3 main-content">
                     <div class="rating-container">
                         <h3 class="calificacion">¡Valora la prenda!</h3>
                         <div class="rating">
@@ -150,7 +211,8 @@
                 </div>
             </div>
         </div>
-        <div class="comentario">
+        <div id="comentariosContainer" class="comentario"></div>
+
             <div class="row">
                 <div class="col-md-1">
                     <img class="icon" src="https://i.pinimg.com/736x/c5/60/62/c56062ce3d120bb50721216064f812cc.jpg">
@@ -190,7 +252,6 @@
             </div>
         </div>
         </div>
-        <script src="clothesService.js"></script>
     </body>
 
 </html>
