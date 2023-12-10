@@ -13,6 +13,10 @@
     height: auto;
 }
 
+.btn btn-primary {
+    background-color: rgb(218, 169, 175);
+}
+
 .button {
     display: flex;
     justify-content: flex-end;
@@ -69,7 +73,12 @@
 
 .borde {
     margin: 2%;
-    margin-bottom: 5px;
+}
+
+.margen {
+    margin: 2%;
+    margin-bottom: 10px;
+
 }
 
 .rating label {
@@ -103,7 +112,7 @@
     align-items: center;
     justify-content: space-around;
     background: rgb(218, 169, 175);
-
+    border-bottom: 10px solid rgb(218, 169, 175);
 }
 
 
