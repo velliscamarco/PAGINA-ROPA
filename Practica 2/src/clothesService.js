@@ -1,11 +1,7 @@
 const clothes = new Map();
 let nextId = 0;
 
-export function addClothes(clothes) {
-    let id = nextId++;
-    clothes.set(clothes.id, clothes);
-}
-
+localStorage.setItem('clothes', JSON.stringify([...clothes.values()]));
 addClothes({
     id: nextId,
     title: 'HODDIE 28 PROGRAM',
@@ -24,8 +20,8 @@ addClothes({
     img: 'https://28clothing.com/cdn/shop/products/28-Evergreen-Pants-2-Front.png?v=1677854919&width=1280',
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     colors: ['white']
-},
-    {
+}),
+    addClothes({
         id: nextId,
         title: 'Converse',
         price: 70,
@@ -33,8 +29,8 @@ addClothes({
         img: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/6218f8cc55984cfe92d1a96d0110ac7e_9366/Zapatilla_Handball_Spezial_Negro_DB3021_01_standard.jpg',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         colors: ['white', 'black']
-    },
-    {
+    }),
+    addClothes({
         id: nextIdextId,
         title: 'Sombrero North Face',
         price: 15,
@@ -42,8 +38,8 @@ addClothes({
         img: 'https://www.coresurfingshop.com/36276-home_default/the-north-face-explore-beanie-black.jpg',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         colors: ['black']
-    },
-    {
+    }),
+    addClothes({
         id: nextId,
         title: 'Chaleco acolchado Moncler',
         price: 250,
@@ -51,8 +47,8 @@ addClothes({
         img: 'https://cdn-images.farfetch-contents.com/18/57/86/35/18578635_40108519_1000.jpg',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         colors: ['white', 'red', 'blue', 'black']
-    },
-    {
+    }),
+    addClothes({
         id: nextId,
         title: 'Bañador Ralph Lauren',
         price: 60,
@@ -60,8 +56,8 @@ addClothes({
         img: 'https://img01.ztat.net/article/spp-media-p1/2661b23f60bc4a3b940e03de555ddbdb/d8a938c1218149d5bff5245a624dac68.jpg?imwidth=762&filter=packshot',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         colors: ['pink', 'white', 'blue']
-    },
-    {
+    }),
+    addClothes({
         id: nextId,
         title: 'Gafas Versace',
         price: 150,
@@ -69,8 +65,8 @@ addClothes({
         img: 'https://www.opticaibarreta.com/pub/media/catalog/product/cache/0fdffada69f00a88bfc211dbbe3909a4/v/e/versace-ve4361-gb1-87-030a.jpg',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         colors: ['black']
-    },
-    {
+    }),
+    addClothes({
         id: nextId,
         title: 'Anillos',
         price: 100,
@@ -78,8 +74,8 @@ addClothes({
         img: 'https://pngimg.es/d/ring_PNG75.png',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         colors: ['']
-    },
-    {
+    }),
+    addClothes({
         id: nextId,
         title: 'Mochila Vans',
         price: 30,
@@ -87,8 +83,8 @@ addClothes({
         img: 'https://invain.imgix.net/media/catalog/product/v/a/vanc230000-1.jpg?w=700&h=700&auto=format',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         colors: ['black']
-    },
-    {
+    }),
+    addClothes({
         id: nextId,
         title: 'Calcetines Cars',
         price: 7,
@@ -96,8 +92,8 @@ addClothes({
         img: 'https://www.saitikids.com/wp-content/uploads/2021/10/calcetines-pack-cars-diferentes-colores-rojo-y-azul-nino-par2-frontal-CR2044-1281-.jpg',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         colors: ['red', 'blue']
-    },
-    {
+    }),
+    addClothes({
         id: nextId,
         title: 'Jersey de punto',
         price: 7,
@@ -105,19 +101,24 @@ addClothes({
         img: 'https://www.longchamp.com/dw/image/v2/BCVX_PRD/on/demandware.static/-/Sites-LC-master-catalog/default/dw6ca7c93f/images/DIS/61161WMCI031TL_0.png?sw=2000&sh=2000&sm=fit',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         colors: ['red', 'blue', 'green']
-    }),
+    });
 
 
-    function deleteClothes(id) {
-        clothes.delete(id);
-    }
+export function deleteClothes(id) {
+    clothes.delete(id);
+}
 
-function getClothes() {
+export function addClothes(clothes) {
+    let id = nextId++;
+    clothes.id = id.toString();
+    clothes.set(clothes.id, clothes);
+}
+
+
+export function getClothes() {
     return [...clothes.values()];
 }
 
-function getClothes(id) {
+export function getClothes(id) {
     return clothes.get(id);
 }
-
-
