@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link type="text/css" href="style.css" rel="stylesheet">
+    <link href="/styles/style.css" rel="stylesheet">
     <script src="clothesService.js"></script>
     <script src="clothesService.js">import { editClothes } from './clothesService.js'; </script>
     <script src="comentarios.js">import { agregarComentario, cargarComentarios } from './comentarios.js';
@@ -22,116 +22,86 @@
         <p class=" redes">Encuentranos en nuestras redes sociales: <i class="bi bi-instagram"> </i> <i
                 class="bi bi-tiktok">
             </i><i class="bi bi-twitter"></i></p>
-        <nav class="button">
-            <a href="/clothes/:id/delete">Borrar <i class="bi bi-trash"></i></a>
-            <a href="index_clothes.html" class="button">Inicio</a>
-            <a href="/clothes/:id/edit" class="button" onclick="editClothes">Editar <i class="bi bi-brush"></i></a>
-        </nav>
+
     </header>
 
     <body>
         <div class="container">
+
             <div class="row">
                 <div class="col-md-6">
                     <img class="hoodie" src="{{img}}">
-                    <p><label for="select">Tallas</label>
-                        <select id="select">
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M" selected>M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                        </select>
-                        <label for="select">Color</label>
-                        <select id="select">
-                            <option value="pink" selected> Rosa </option>
-                            <option value="black">Negro</option>
-                            <option value="Grey">Gris</option>
-                            <option value="white">Blanco</option>
-                    </p>
-                    </select>
-                    <p>PRECIO: {{price}} </p>
 
                 </div>
 
                 <div class="col-md-6 main-content">
 
                     <h1>{{title}}</h1>
-                    <h6> Descrpición: </h6>
-                    <p>{{description}}
+                    <h6> Descripción: </h6>
+                    <p>{{description}}</p>
+                    <p>PRECIO: {{price}} € </p>
+                    <p>COLORES: {{colors}} </p>
 
+
+                    <nav class="button">
+                        <a href="/clothes/{{id}}/delete">Borrar <i class="bi bi-trash"></i></a>
+                        <a href="/" class="button">Inicio</a>
+                        <a href="/clothes/{{id}}/modify" class="button" onclick="editClothes">Editar <i
+                                class="bi bi-brush"></i></a>
+                    </nav>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <p> </p>
+        <div class="col-md-12">
+            <div class="container">
+                <div class="row">
+                    <div class="caja-comentarios">
+
+                        <p>
+
+                        </p>
+                        <h2>¡Deja tu comentario!</h2>
+
+                        <form>
+
+                            <label for="name" class="form-label">Nombre de usuario</label>
+                            <input type="text" id="name" name="name" class="form-control">
+                            <label for="comment class=" form-label">Descripcion </label>
+                            <textarea id="comment" name="comment" class="form-control"></textarea>
+
+                            <nav class="button">
+                                <a onclick="agregarComentario(event)" class="button">Submit</a>
+                            </nav>
+
+                        </form>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+            <div id="comentariosContainer" class="comentario"></div>
+
             <div class="row">
-
-                <div class="caja-comentarios">
-
-                    <p>
-
-                    </p>
-                    <h2>¡Deja tu comentario!</h2>
-
-                    <form>
-
-                        <label for="name" class="form-label">Nombre de usuario</label>
-                        <input type="text" id="name" name="name" class="form-control">
-                        <label for="comment class=" form-label">Descpricion </label>
-                        <textarea id="comment" name="comment" class="form-control"></textarea>
-
-                        <nav class="button">
-                            <a onclick="agregarComentario(event)" class="button">Subimit </a>
-                        </nav>
-
-                    </form>
-
-                </div>
-
-
-
-            </div>
-        </div>
-        </div>
-        <div id="comentariosContainer" class="comentario"></div>
-
-        <div class="row">
-            <div class="col-md-1">
-                <img class="icon" src="https://i.pinimg.com/736x/c5/60/62/c56062ce3d120bb50721216064f812cc.jpg">
-
-            </div>
-
-            <div class="col-md-11">
-                <div class="NombreUsuario">
-                    <h5>Elena</h5>
-                </div>
-                <p>
-                    Muy buena calidad, muy cómoda y con los lavados no pierde calidad.
-                </p>
-
-            </div>
-        </div>
-        </div>
-        <p>
-
-        </p>
-        <div class="comentario">
-            <div class="row">
+                {{#comentarios}}
                 <div class="col-md-1">
                     <img class="icon" src="https://i.pinimg.com/736x/c5/60/62/c56062ce3d120bb50721216064f812cc.jpg">
-
                 </div>
-
                 <div class="col-md-11">
-                    <div class="cajacomentariohecho"></div>
+
                     <div class="NombreUsuario">
-                        <h5>Marco</h5>
+                        <h5>{{name}}</h5>
                     </div>
                     <p>
-                        Me esperaba más, pero para su precio cumple :D
+                        {{comment}}
                     </p>
+                    {{/comentarios}}
                 </div>
             </div>
+        </div>
         </div>
         </div>
 

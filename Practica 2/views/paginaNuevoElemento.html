@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link type="text/css" href="style.css" rel="stylesheet">
+    <link type="text/css" href="/styles/style.css" rel="stylesheet">
     <script src="clothesService.js"></script>
 </head>
 
@@ -23,67 +23,55 @@
 
         <div class="newclothes">
             <h3 class="titlenewclothe"> Añade una nueva prenda. </h3>
-            <form action="new" method="post">
+            <form action="{{route}}" method="post">
                 <div class="form-group">
                     <p class="borde">
                         <label for="Nombre de la prenda"><b>Nombre de la prenda</b></label>
-                        <input type="text" class="form-control" id="title"
+                        <input type="text" name="title" value="{{title}}" class="form-control" id="title"
                             placeholder="Introduza el nombre de la prenda">
                     </p>
                 </div>
                 <div class="form-group">
                     <p class="borde">
                         <label for="Imagen"><b>URL de la imagen: </b></label>
-                        <input type="text" class="form-control" id="imagen" placeholder="Introduza el URL de la imagen">
+                        <input type="text" name="img" value="{{img}}" class="form-control" id="imagen"
+                            placeholder="Introduza el URL de la imagen">
                     </p>
 
                     <div class="checkbox">
                         <p class="borde">
                             <label for="color"><b>Color: </b></label>
 
+                            {{#colors}}
+                            <label><input type="checkbox" name="{{color}}" value="{{color}}" {{checked}}> {{color}}
+                            </label>
+                            {{/colors}}
 
-                            <label><input type="checkbox"> Rojo </label>
-                            <label><input type="checkbox"> Azul </label>
-                            <label><input type="checkbox"> Amarillo </label>
-                            <label><input type="checkbox"> Verde </label>
-                            <label><input type="checkbox"> Gris </label>
-                            <label><input type="checkbox"> Morado </label>
-                            <label><input type="checkbox"> Rosa </label>
                     </div>
 
                     </p>
                     <p class="borde">
                         <label for="Precio de la prenda"> <b>Precio de la prenda</b> </label>
-                        <input type="number" class="form-control" id="Precio"
+                        <input name="price" type="number" value="{{price}}" class="form-control" id="Precio"
                             placeholder="Introduza el precio de la prenda">
                     </p>
                 </div>
-                <div class="checkbox">
-                    <p class="borde">
-                        <label for="Talla"><b>Tallas disponibles: </b> </label>
-                        <label><input type="checkbox"> XXS </label>
-                        <label><input type="checkbox"> XS </label>
-                        <label><input type="checkbox"> S </label>
-                        <label><input type="checkbox"> M </label>
-                        <label><input type="checkbox"> L </label>
-                        <label><input type="checkbox"> XL </label>
-                        <label><input type="checkbox"> XXL </label>
-                    </p>
-                </div>
+
 
                 <div class="form-group">
                     <p class="borde">
                         <label for="Breve descrpicion"><b>Descripcion de la prenda: </b></label>
-                        <input type=text" class="form-control" id="Description" placeholder="Descripcion">
+                        <input type=text" name="description" value="{{description}}" class="form-control"
+                            id="Description" placeholder="Descripcion">
                     </p>
 
                 </div>
                 <p class="borde">
                 <div class="margen">
-                    <button type="button" class="btn btn-success" id="guardarPrendaButton">Guardar
+                    <button type="submit" class="btn btn-success" id="guardarPrendaButton">Guardar
                         <i class="bi bi-check-square"> </i></button>
 
-                    <a href="index_clothes.html" class="btn btn-danger">Cancelar <i class="bi bi-trash">
+                    <a href="/" class="btn btn-danger">Cancelar <i class="bi bi-trash">
                         </i></a>
 
                     </button>
@@ -94,53 +82,6 @@
         </div>
 
     </div>
-    <script>
-
-        function cargarPrenda() {
-            var clothes = clothesService.getClothes();
-            var nombre = document.getElementById("Nombre de la prenda").value;
-            var imagen = document.getElementById("Imagen").value;
-            var color = document.getElementById("Color").value;
-            var precio = document.getElementById("Precio de la prenda").value;
-            var talla = document.getElementById("Talla").value;
-            var descripcion = document.getElementById("Breve descripcion").value;
-            var caracteristicas = document.getElementById("Carcateristicas descripcion").value;
-            clothesService.addClothes(clothes);
-            localStorage.setItem("clothes", JSON.stringify(clothes));
-            window.location.href = "ConfirmacionCrear.html";
-        }
-
-        function agregarPrenda() {
-            var nombre = document.getElementById("Nombre de la prenda").value;
-            var imagen = document.getElementById("Imagen").value;
-            var color = document.getElementById("Color").value;
-            var precio = document.getElementById("Precio de la prenda").value;
-            var talla = document.getElementById("Talla").value;
-            var descripcion = document.getElementById("Breve descripcion").value;
-            var caracteristicas = document.getElementById("Carcateristicas descripcion").value;
-
-            var newclothes = document.createElement("div");
-            newclothes.className = "item";
-            newclothes.innerHTML = '<a href="PaginaSecundaria.html" style="text-decoration: none">' + nombre + '<p><img class=imagen src="' + imagen + '" /></p>';
-            document.getElementById("PRENDAS").appendChild(newclothes);
-            var clothes = clothesService.getClothes();
-            clothes.appendChild(newclothes);
-
-            document.getElementById("Nombre de la prenda").value = "";
-            document.getElementById("Imagen").value = "";
-            document.getElementById("Color").value = "";
-            document.getElementById("Precio de la prenda").value = "";
-            document.getElementById("Talla").value = "";
-            document.getElementById("Breve descripcion").value = "";
-            document.getElementById("Carcateristicas descripcion").value = "";
-
-            var PrendaGuardada = JSON.parse(localStorage.getItem("clothes")) || [];
-            PrendaGuardada.push(clothes);
-            localStorage.setItem("clothes", JSON.stringify(clothes));
-            window.location.href = "ConfirmacionCrear.html";
-        }
-    </script>
-
 </body>
 
 </html>
