@@ -12,5 +12,6 @@ export default function checkForm(obj) {
     if (!obj.description) {
         errors.push('La descripción es obligatoria');
     }
+
     return errors;
 }

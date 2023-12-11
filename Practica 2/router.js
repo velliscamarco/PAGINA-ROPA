@@ -11,6 +11,7 @@ let errors = [];
 
 router.get('/', (_req, res) => { //Pagina inici
     const clothesValues = [...clothes.values()];
+    errors = [];
     res.render('index', { //pagina a renderizar
         clothes: clothesValues
     });
@@ -31,8 +32,9 @@ router.post('/new', (req, res) => {
 
     errors = checkForm(req.body);
 
-    if (errors) res.redirect('/error')
+    if (errors.length > 0) res.redirect('/error')
     else {
+        const id = clothes.size;
         if (req.body.Rojo) colors.push('Rojo');
         if (req.body.Azul) colors.push('Azul');
         if (req.body.Verde) colors.push('Verde');
@@ -50,20 +52,18 @@ router.post('/new', (req, res) => {
 });
 
 router.post('/:id/modify', (req, res) => {
-    const id = req.params.id;
-
+    
     errors = checkForm(req.body);
-
-    if (errors) res.redirect('/error')
+    
+    if (errors.length > 0) res.redirect('/error')
     else {
+        const id = req.params.id;
         clothes.set(`${id}`, { ...req.body, id });
 
         res.redirect(`/clothes/${id}`)
 
     }
 });
-
-
 
 //Obtener la prenda
 router.get('/clothes/:id', (req, res) => {
