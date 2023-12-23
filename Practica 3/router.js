@@ -3,14 +3,14 @@ import {
     clothes, getClothe, getClothes, deleteClothes, addClothes,
     addcoment, colors
 } from './clothesService.js';
-import checkForm from './public/src/checkForm.js';
+import checkForm from './src/checkForm.js';
 import e from 'express';
 
 const router = express.Router();
 let errors = [];
 
 router.get('/', (_req, res) => { //Pagina inici
-    const clothesValues = [...clothes.values()];
+    const clothesValues = getClothes(0, 3);
     errors = [];
     res.render('index', { //pagina a renderizar
         clothes: clothesValues

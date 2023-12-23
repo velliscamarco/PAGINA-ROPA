@@ -1,7 +1,7 @@
 import express from 'express';
 import mustacheExpress from 'mustache-express';
 import bodyParser from 'body-parser';
-import { __dirname } from './public/src/dirname.js';
+import { __dirname } from './src/dirname.js';
 import router from './router.js';
 
 const app = express();
@@ -11,7 +11,9 @@ app.engine('.mustache', mustacheExpress()); //Extension .mustache
 app.set('views', './views');
 app.set('view engine', 'html');
 app.engine('html', mustacheExpress(), "html");
+
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static('./public'));
 
 app.get('/', router); //Asociamos el router a la aplicación
@@ -25,4 +27,4 @@ app.get('/error', router);
 app.post('/new', router);
 app.post('/:id/modify', router);
 
-app.listen(3000, () => console.log('Listening on port 3000!'));
+app.listen(3000, () => console.log('Listening on port 3000!')); //Confirma que funciona

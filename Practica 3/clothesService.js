@@ -166,3 +166,22 @@ export const colors = [
     { "color": "Rosa" }
 ];
 
+export function loadSampleData() {
+    addClothes({
+        id: nextId,
+        title: 'HODDIE 28 PROGRAM',
+        price: 70,
+        description: 'Descubre la elegancia casual con nuestra sudadera 28 programm de la más alta calidad. Confeccionada en algodón orgánico, esta sudadera no solo es una declaración de estilo, sino también un compromiso con la sostenibilidad. fabricada en España.',
+        img: 'https://28clothing.com/cdn/shop/products/PINKHOODIE-2.png?v=1693234992&width=1280',
+        sizes: ['XS', 'S', 'M', 'L', 'XL'],
+        colors: ['Rosa'],
+        comentarios: [
+            {
+                name: 'Pablo',
+                comment: 'Me encanta'
+            }
+
+        ]
+    })
+
+}
