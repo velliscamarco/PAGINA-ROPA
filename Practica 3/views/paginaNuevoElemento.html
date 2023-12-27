@@ -27,14 +27,14 @@
                 <div class="form-group">
                     <p class="borde">
                         <label for="Nombre de la prenda"><b>Nombre de la prenda</b></label>
-                        <input type="text" name="title" value="{{title}}" class="form-control" id="title"
-                            placeholder="Introduza el nombre de la prenda">
+                        <input type="text" name="title" value="{{title}}" class="form-control" required id="title"
+                            oninput='checktitle()' placeholder="Introduza el nombre de la prenda">
                     </p>
                 </div>
                 <div class="form-group">
                     <p class="borde">
                         <label for="Imagen"><b>URL de la imagen: </b></label>
-                        <input type="text" name="img" value="{{img}}" class="form-control" id="imagen"
+                        <input type="text" name="img" value="{{img}}" class="form-control" required id="imagen"
                             placeholder="Introduza el URL de la imagen">
                     </p>
 
@@ -43,7 +43,8 @@
                             <label for="color"><b>Color: </b></label>
 
                             {{#colors}}
-                            <label><input type="checkbox" name="{{color}}" value="{{color}}" {{checked}}> {{color}}
+                            <label><input type="checkbox" name="{{color}}" required value="{{color}}" {{checked}}>
+                                {{color}}
                             </label>
                             {{/colors}}
                     </div>
@@ -51,7 +52,7 @@
                     </p>
                     <p class="borde">
                         <label for="Precio de la prenda"> <b>Precio de la prenda</b> </label>
-                        <input name="price" type="number" value="{{price}}" class="form-control" id="Precio"
+                        <input name="price" type="number" value="{{price}}" class="form-control" required id="Precio"
                             placeholder="Introduza el precio de la prenda">
                     </p>
                 </div>
@@ -60,7 +61,7 @@
                 <div class="form-group">
                     <p class="borde">
                         <label for="Breve descrpicion"><b>Descripcion de la prenda: </b></label>
-                        <input type=text" name="description" value="{{description}}" class="form-control"
+                        <input type=text" name="description" value="{{description}}" class="form-control" required
                             id="Description" placeholder="Descripcion">
                     </p>
 
