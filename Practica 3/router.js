@@ -1,8 +1,9 @@
 import express from 'express';
 import {
     clothes, getClothe, getClothes, deleteClothes, addClothes,
-    addcoment, colors
+    addcoment, colors, loadSampleData,
 } from './clothesService.js';
+import { loadMore } from './public/app.js';
 import checkForm from './src/checkForm.js';
 import e from 'express';
 

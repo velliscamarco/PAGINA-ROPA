@@ -1,7 +1,7 @@
 export const clothes = new Map();
 let nextId = 0;
 
-// localStorage.setItem('clothes', JSON.stringify([...clothes.values()]));
+
 addClothes({
     id: nextId,
     title: 'HODDIE 28 PROGRAM',
@@ -127,9 +127,16 @@ export function getClothe() {
     return [...clothes.values()];
 }
 
-export function getClothes(id) {
-    return clothes.get(id);
+export function getClothes(from, to) {
+    let values = [...clothes.values()];
+    if (from !== undefined) {
+        return values.slice(from, to);
+    }
+    else {
+        return values;
+    }
 }
+
 
 
 
@@ -166,7 +173,7 @@ export const colors = [
     { "color": "Rosa" }
 ];
 
-export function loadSampleData() {
+export function loadSampleData() { //Añadir el resto de prendas (puestas arriba)
     addClothes({
         id: nextId,
         title: 'HODDIE 28 PROGRAM',
@@ -183,5 +190,15 @@ export function loadSampleData() {
 
         ]
     })
+    addClothes({
+        id: nextId,
+        title: 'Pantalón 28 PROGRAM',
+        price: 50,
+        description: 'Descubre la elegancia casual con nuestro pantalón 28 programm de la más alta calidad. Confeccionada en algodón orgánico, esta sudadera no solo es una declaración de estilo, sino también un compromiso con la sostenibilidad. Fabricado en España.',
+        img: 'https://28clothing.com/cdn/shop/products/28-Evergreen-Pants-2-Front.png?v=1677854919&width=1280',
+        sizes: ['XS', 'S', 'M', 'L', 'XL'],
+        colors: ['Blanco']
+    });
+
 
 }
