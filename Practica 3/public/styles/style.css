@@ -8,6 +8,10 @@
 
 }
 
+.no-resuts {
+    display: none;
+}
+
 .hoodie {
     width: 70%;
     height: auto;

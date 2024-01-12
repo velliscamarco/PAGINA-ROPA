@@ -1,7 +1,9 @@
 <html>
 <script src="app.js"></script>
 <script src="clothesService.js"></script>
-<script src="/src/buscador.js"></script>
+<script src="buscador.js"></script>
+
+
 
 
 <head>
@@ -26,9 +28,11 @@
         </p>
         <div class="marco">
                 <h5>Buscador de prendas: </h5>
-                <input type="text" id="formulario" class="form-control mb-2" />
-                <button class="btn btn-primary mb-2" id="boton">Buscar</button>
-                <ul id="resultado"></ul>
+                <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Buscas prenda" />
+                        <ul id="resultsList" class="results-list"></ul>
+                        <p id="noResults" class="no-results">No hay resultados</p>
+                </div>
                 <div class="container main">
                         <div class="PRENDAS">
                                 {{#clothes}}
