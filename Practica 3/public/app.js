@@ -1,7 +1,6 @@
 const NUM_RESULTS = 3;
 
 let loadMoreRequests = 0;
-
 //Cargar mas prendas (hay que adaptarlo a la pagina de ropa)
 async function loadMore() {
 
@@ -10,11 +9,11 @@ async function loadMore() {
 
     const response = await fetch(`/clothes?from=${from}&to=${to}`);
 
-    const newClothe = await response.text();
+    const newClothes = await response.text();
 
-    const ClotheDiv = document.getElementById("Clothe");
+    const clotheDiv = document.getElementById("Clothes");
 
-    ClotheDiv.innerHTML += newClothess;
+    clotheDiv.innerHTML += newClothes;
 
     loadMoreRequests++;
 }
@@ -27,7 +26,7 @@ async function checktitle() {
 
     let title = titleInput.value;
 
-    const response = await fetch(`/availabletitle?title=${title}`);
+    const response = await fetch(`/ availabletitle ? title = ${title}`);
 
     const responseObj = await response.json();
 

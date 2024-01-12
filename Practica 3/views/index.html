@@ -1,12 +1,13 @@
 <html>
-<script src="removeElement.js"></script>
 <script src="app.js"></script>
+<script src="../clothesService.js"></script>
 
 
 <head>
         <title> MARNA </title>
         <link rel="stylesheet" href="/styles/style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 </head>
 
 <header>
@@ -23,7 +24,7 @@
         </p>
         <div class="marco">
                 <div class="container main">
-                        <div class="PRENDAS">
+                        <!--     <div class="PRENDAS">
                                 <div id="clothes>
                                         {{#clothes}}
                                         <div class=" item"><a href='/clothes/{{id}}'
@@ -34,21 +35,30 @@
                                 </div>
 
 
-                        </div>
-                        <button onclick="loadMore()"> Cargar más elemntos </button>
-                        <div class="item">
-                                <a href="/new-element">
+                        </div> -->
+                        <div id="clothes">
+                                {{#clothes}}
+                                <p>{{title}}</p>
+                                <div class=" item"><a href='/clothes/{{id}}' style="text-decoration: none">{{name}}
+                                                <p><img class=imagen src="{{img}}" />
+                                                </p>
+                                                {{/clothes}}
+                                </div>
 
-                                        <img src="https://www.pngall.com/wp-content/uploads/10/Plus-Symbol-Silhouette-PNG.png"
-                                                class="boton" />
-                                </a>
+                                <button onclick="loadMore()"> Cargar más elemntos </button>
+                                <div class="item">
+                                        <a href="/new-element">
+
+                                                <img src="https://www.pngall.com/wp-content/uploads/10/Plus-Symbol-Silhouette-PNG.png"
+                                                        class="boton" />
+                                        </a>
+                                </div>
                         </div>
+                        {{^clothes}}
+                        <p id=""" class=" noHay">No hay prendas</p>
+                        {{/clothes}}
+
                 </div>
-                {{^clothes}}
-                <p id=""" class=" noHay">No hay prendas</p>
-                {{/clothes}}
-
-        </div>
         </div>
 
 

@@ -1,20 +1,27 @@
 import express from 'express';
 import {
-    clothes, getClothe, getClothes, deleteClothes, addClothes,
-    addcoment, colors, loadSampleData,
+    clothes, getClothes, colors,
 } from './clothesService.js';
-import { loadMore } from './public/app.js';
 import checkForm from './src/checkForm.js';
-import e from 'express';
+
 
 const router = express.Router();
 let errors = [];
 
-router.get('/', (_req, res) => { //Pagina inici
-    const clothesValues = getClothes(0, 3);
+router.get('/', (req, res) => { //Pagina inici
+    const clothes = getClothes(0, 3);
     errors = [];
     res.render('index', { //pagina a renderizar
-        clothes: clothesValues
+        clothes: clothes
+    });
+});
+
+router.get('/clothes', (req, res) => {
+    const from = parseInt(req.query.from);
+    const to = parseInt(req.query.to);
+    const clothes = getClothes(from, to);
+    res.render('clothes', {
+        clothes: clothes
     });
 });
 
