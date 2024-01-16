@@ -19,22 +19,3 @@ async function loadMore() {
 }
 
 
-//Validar formulario, hacer con las maysuculas del titulo (y con el resto de apartados)
-async function checktitle() {
-
-    let titleInput = document.getElementById('title');
-
-    let title = titleInput.value;
-
-    const response = await fetch(`/ availabletitle ? title = ${title}`);
-
-    const responseObj = await response.json();
-
-    let message = responseObj.available ?
-        '<p>Disponible</p>' :
-        '<p>Campo incorrecto, porfavor compruebe que la comienza con mayuscula</p>';
-
-    const messageDiv = document.getElementById('message');
-    messageDiv.innerHTML = message;
-
-}
