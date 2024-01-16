@@ -1,0 +1,68 @@
+<html>
+
+
+
+
+
+<head>
+        <title> MARNA </title>
+        <link rel="stylesheet" href="/styles/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+</head>
+
+<header>
+
+        <H1 class="title">MARNA</H1>
+        <p class=" redes">Encuentranos en nuestras redes sociales: <i class="bi bi-instagram"> </i> <i
+                        class="bi bi-tiktok">
+                </i><i class="bi bi-twitter"></i></p>
+
+</header>
+
+<body>
+        <p>
+        </p>
+        <div class="marco">
+                <h5>Buscador de prendas: </h5>
+                <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Buscas prenda" />
+                        <ul id="resultsList" class="results-list"></ul>
+                        <p id="noResults" class="no-results">No hay resultados</p>
+                </div>
+                <div class="container main">
+                        <div class="PRENDAS">
+                                {{#clothes}}
+                                <div class="clothes">
+
+                                        <div class="item"><a href='/clothes/{{id}}'
+                                                        style="text-decoration: none">{{name}}
+                                                        <p><img class=imagen src="{{img}}" />
+                                                        </p>
+                                                </a>
+
+
+                                        </div>
+                                </div>
+                                {{/clothes}}
+
+                                <button onclick="loadMore()"> Cargar más elemntos </button>
+                                <div class="item">
+                                        <a href="/new-element">
+
+                                                <img src="https://www.pngall.com/wp-content/uploads/10/Plus-Symbol-Silhouette-PNG.png"
+                                                        class="boton" />
+                                        </a>
+                                </div>
+                        </div>
+                        {{^clothes}}
+                        <p id=""" class=" noHay">No hay prendas</p>
+                        {{/clothes}}
+
+                </div>
+        </div>
+        <script src="app.js"></script>
+
+        <script src="buscador.js"></script>     
+</body>
